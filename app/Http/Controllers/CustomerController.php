@@ -36,7 +36,21 @@ class CustomerController extends Controller
             $customer->dob= $request['dob'];
             $customer->save();
             
-            
+            return redirect('/viewcustomer');
+
+
+    }
+    public function view(){
+
+        $customers = Customer::all();
+        // echo "<pre>";
+        //     print_r($customers);
+        //     die();
+        $data=compact('customers');
+        return view('CustomerView')->with($data);
+    }
+       
+
 
 
             // if($validatedData==true) {
@@ -57,11 +71,6 @@ class CustomerController extends Controller
     
         // // redirect to login page or wherever you want to send the user
         // return redirect()->route('login');
-    }
-       
-
-
-
 //     public function store(Request $request)
 // {
 //     // validate input data
