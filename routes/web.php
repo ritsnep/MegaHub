@@ -14,6 +14,11 @@ use App\Models\Customer;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/',function()
+{
+    return view ('index');
+});
+
 
 Route::get('/register', [RegistrationController::class, 'index']);
 
